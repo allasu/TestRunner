@@ -26,7 +26,7 @@ git clone https://github.com/%GITHUB_ACCOUNT%/%REPO_NAME%.git
 SLEEP 2
 CD %REPO_NAME%
 SLEEP 2
-CALL mvn package -Dbuild.version="1.1"
+CALL mvn package -Dbuild.version=%APP_VERSION%
 ECHO.
 SLEEP 2
 CALL chdir
