@@ -4,7 +4,7 @@ SET GITHUB_ACCOUNT=allasu
 SET WS_DIR=Workspace
 SET REPO_NAME=Title_Validation_CSV
 SET APP_VERSION=1.1
-SET MAIN_CLASS=core.Validation_CVS
+SET MAIN_CLASS=core.Title_Validation_CSV
 SET ARGS_01=
 ::================================
 IF "%JAVA_HOME%" == "" GOTO EXIT_JAVA
@@ -26,12 +26,14 @@ git clone https://github.com/%GITHUB_ACCOUNT%/%REPO_NAME%.git
 SLEEP 2
 CD %REPO_NAME%
 SLEEP 2
-CALL mvn package -Dbuild.version=%APP_VERSION%
+CALL mvn package -Dbuild.version="%APP_VERSION%"
+::CALL mvn package
 ECHO.
 SLEEP 2
 CALL chdir
 ECHO Executing Java program ... 
 java -cp .\target\%REPO_NAME%-%APP_VERSION%-jar-with-dependencies.jar %MAIN_CLASS% %ARGS_01%
+::java -jar .\target\%REPO_NAME%-%APP_VERSION%-jar-with-dependencies.jar %ARGS_01%
 GOTO END
 
 :EXIT_JAVA
