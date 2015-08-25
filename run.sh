@@ -20,7 +20,7 @@ git clone https://github.com/$GITHUB_ACCOUNT/$REPO_NAME.git
 
 cd ./$REPO_NAME
 
-mvn package -Dbuild.version $APP_VERSION
+mvn package -Dbuild.version="$APP_VERSION"
 echo Executing Java program ...
 
 java -cp $HOME/$WS_DIR/$REPO_NAME/target/$REPO_NAME-$APP_VERSION-jar-with-dependencies.jar $MAIN_CLASS $ARGS_01
